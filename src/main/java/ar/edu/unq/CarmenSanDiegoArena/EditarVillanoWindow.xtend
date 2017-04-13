@@ -1,6 +1,6 @@
 package ar.edu.unq.CarmenSanDiegoArena
-import org.uqbar.arena.aop.windows.TransactionalWindow
-import tp1.Villano
+
+
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
@@ -8,10 +8,11 @@ import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.List
+import org.uqbar.arena.aop.windows.TransactionalDialog
 
-class EditarVillanoWindow extends TransactionalWindow<Villano>{
+class EditarVillanoWindow extends TransactionalDialog<AppModelVillano>{
 	
-	new(WindowOwner parent, Villano model) {
+	new(WindowOwner parent, AppModelVillano model) {
 		super(parent, model)
 	}
 	
@@ -25,13 +26,13 @@ class EditarVillanoWindow extends TransactionalWindow<Villano>{
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Nombre:"
 		new TextBox(mainPanel) => [
-			value <=> "nombre"
+			value <=> "villano.nombre"
 			width = 100
 		]
 
 		new Label(mainPanel).text = "Sexo:"
 		new TextBox(mainPanel) => [
-			value <=> "sexo"
+			value <=> "villano.sexo"
 			width = 100
 		]
 		
@@ -41,7 +42,7 @@ class EditarVillanoWindow extends TransactionalWindow<Villano>{
 			onClick [| abrirEditarSenas]
 		]
 		new List(mainPanel) => [
-			items <=> "senas_particulares"
+			items <=> "villano.senas_particulares"
 		]
 		
 		
@@ -51,16 +52,26 @@ class EditarVillanoWindow extends TransactionalWindow<Villano>{
 			onClick [| abrirEditarHobbies]
 		]
 		new List(mainPanel) => [
-			items <=> "hobbies"
+			items <=> "villano.hobbies"
 		]
 	}
 	
 	def abrirEditarHobbies() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		new EditarHobbiesWindow(this, modelObject).open()
 	}
 	
 	def abrirEditarSenas() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		new EditarSenasWindow(this, modelObject).open()
 	}
+	
+	override executeTask(){
+		
+		
+		modelObject.actualizarVillanos()
+
+		super.executeTask()
+	}
+	
+	
 	
 }

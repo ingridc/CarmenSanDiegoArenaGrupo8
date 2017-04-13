@@ -1,5 +1,7 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
+
+
 import org.uqbar.arena.windows.SimpleWindow
 import tp1.CarmenSanDiego
 import org.uqbar.arena.windows.WindowOwner
@@ -94,6 +96,8 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 	def nuevoPais(){
 		new NuevoPaisWindow(this).open()
 	}
+	
+
 	
 	
 }

@@ -1,4 +1,6 @@
 package ar.edu.unq.CarmenSanDiegoArena
+
+
 import org.uqbar.arena.windows.SimpleWindow
 import tp1.Pais
 import org.uqbar.arena.windows.WindowOwner

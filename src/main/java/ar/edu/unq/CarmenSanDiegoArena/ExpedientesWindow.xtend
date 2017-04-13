@@ -1,4 +1,6 @@
 package ar.edu.unq.CarmenSanDiegoArena
+
+
 import org.uqbar.arena.windows.SimpleWindow
 import tp1.CarmenSanDiego
 import org.uqbar.arena.windows.WindowOwner
@@ -8,6 +10,9 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Button
+import org.uqbar.arena.bindings.PropertyAdapter
+import tp1.Villano
+import org.uqbar.arena.bindings.ObservableProperty
 
 class ExpedientesWindow extends SimpleWindow<CarmenSanDiego>{
 	
@@ -27,17 +32,18 @@ class ExpedientesWindow extends SimpleWindow<CarmenSanDiego>{
 		
 		val listaVillanos = new Panel(mainPanel)
 		new Label(listaVillanos).text = "Villano"
-		new List(listaVillanos) => [
-			items <=> "villanos"
-			value <=> "villanoElegido"
-		]
+		
+		val villanosList = new List(listaVillanos)
+		villanosList.bindValueToProperty("villanoElegido")
+		val villanosProperty = villanosList.bindItems(new ObservableProperty(modelObject, "villanos"))
+		villanosProperty.adapter = new PropertyAdapter(typeof(Villano), "nombre")
 		
 		botonesDeEdicion(listaVillanos)
 		
 		val atributosVillano = new Panel(mainPanel)
 		new Label(atributosVillano).text = "Nombre:" 
 		new Label(atributosVillano) => [
-			value <=> "villanoElegido"
+			value <=> "villanoElegido.nombre"
 		]
 		new Label(atributosVillano).text = "Sexo:"
 		new Label(atributosVillano) => [
@@ -65,11 +71,14 @@ class ExpedientesWindow extends SimpleWindow<CarmenSanDiego>{
 	}
 	
 	def editarVillano() {
-		(new EditarVillanoWindow(this, modelObject.getVillanoElegido())).open()
+		new EditarVillanoWindow(this, new AppModelVillano(modelObject.getVillanoElegido(), modelObject)).open()
 	}
 	
 	def nuevoVillano() {
-		(new NuevoVillanoWindow(this)).open()
+		(new NuevoVillanoWindow(this, modelObject)).open()
+		
 	}
+	
+	
 	
 }

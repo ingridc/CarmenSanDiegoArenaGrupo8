@@ -1,5 +1,6 @@
 package ar.edu.unq.CarmenSanDiegoArena
-import org.uqbar.arena.aop.windows.TransactionalWindow
+
+
 import tp1.Pais
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
@@ -10,12 +11,13 @@ import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.List
+import org.uqbar.arena.aop.windows.TransactionalDialog
 
-class EditarPaisWindow extends TransactionalWindow<Pais>{
+class EditarPaisWindow extends TransactionalDialog<Pais>{
 	
 	new(WindowOwner parent, Pais model) {
 		super(parent, model)
-		title = defaultTitle
+		title = "Mapamundi-EditarPais"
 	}
 	
 	def defaultTitle(){

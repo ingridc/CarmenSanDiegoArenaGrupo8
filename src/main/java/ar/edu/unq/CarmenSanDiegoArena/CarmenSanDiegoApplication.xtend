@@ -10,12 +10,17 @@ import tp1.Lugar
 
 class CarmenSanDiegoApplication extends Application {
 	
+	/*
+	 *  ESTO ES SOLO PARA ARRANCAR, EL APPLICATION MODEL ES CARMENSANDIEGO
+	 */
+	
+	var caracteristicas = new ArrayList<String>
 	val carmenSanDiego = new Villano("Carmen San Diego","femenino",new ArrayList<String>, new ArrayList<String>)
 	val pepe = new Villano("Pepe","masculino",new ArrayList<String>, new ArrayList<String>)
-	val argentina = new Pais("Argentina",new ArrayList<String>,new ArrayList<Lugar>, new ArrayList<Pais>)
-	val egipto = new Pais("Egipto", new ArrayList<String>, new ArrayList<Lugar>,new ArrayList<Pais>)
-	val mexico = new Pais("Mexico", new ArrayList<String>, new ArrayList<Lugar>,new ArrayList<Pais>)
-	val noruega = new Pais("Noruega", new ArrayList<String>, new ArrayList<Lugar>,new ArrayList<Pais>)
+	val argentina = new Pais("Argentina",caracteristicas,new ArrayList<Lugar>, new ArrayList<Pais>)
+	val egipto = new Pais("Egipto", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
+	val mexico = new Pais("Mexico", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
+	val noruega = new Pais("Noruega", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
 	val planDeE = new ArrayList<Pais>
 	
 
@@ -34,6 +39,8 @@ escena del crimen no contaba con pista alguna
 		 val juego = new CarmenSanDiego => [
 			planDeE.add(argentina)
 			planDeE.add(mexico)
+			caracteristicas.add("estoNofunca")
+			caracteristicas.add("rompio todo")
 			agregarNuevoPais(egipto)
 			agregarNuevoPais(mexico)
 			agregarNuevoPais(noruega)

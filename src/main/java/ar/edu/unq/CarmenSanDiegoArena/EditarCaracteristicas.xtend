@@ -1,10 +1,7 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-
-import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
-import tp1.Pais
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
@@ -13,9 +10,10 @@ import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.aop.windows.TransactionalDialog
 
-class EditarCaracteristicas extends TransactionalDialog<Pais>{
+
+class EditarCaracteristicas extends TransactionalDialog<AppModelPais>{
 	
-	new(WindowOwner parent, Pais model) {
+	new(WindowOwner parent, AppModelPais model) {
 		super(parent, model)
 		title = "Editar Caracteristicas"
 	}
@@ -35,24 +33,26 @@ class EditarCaracteristicas extends TransactionalDialog<Pais>{
 		new Label(mainPanel).text = "Caracteristicas"
 		new List(mainPanel) => [
 			items <=> "caracteristicas"
+			value <=> "caracteristicaSeleccionada"
 		]
 		
 		new Button(mainPanel) => [
 			caption = "Eliminar"
-			onClick [ | /*eliminar carac seleccionada */]
+			onClick [ | modelObject.eliminarCaracteristicaSeleccionada()]
 		]
 		
 		val panelAgregar = new Panel(mainPanel)
 		panelAgregar.layout = new HorizontalLayout
 		
 		new TextBox(panelAgregar) => [
-			value <=> "caracteristica" //igual no creo que se deba bindear contra la lista sino agregar a la lista pero eso lo deberia hacer el boton agregar
+			value <=> "caracteristicaSeleccionada" 
 		]
 		
 		new Button(panelAgregar) => [
 			caption = "Agregar"
-			onClick [ | /* mismo dilema de arriba  */]
+			onClick [ | modelObject.guardarCaracteristicaSeleccionada()]
 		]
 	}
+
 	
 }

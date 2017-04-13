@@ -1,7 +1,5 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-
-import tp1.Pais
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
@@ -11,13 +9,14 @@ import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.List
+
 import org.uqbar.arena.aop.windows.TransactionalDialog
 
-class EditarPaisWindow extends TransactionalDialog<Pais>{
+class EditarPaisWindow extends TransactionalDialog<AppModelPais>{
 	
-	new(WindowOwner parent, Pais model) {
+	new(WindowOwner parent, AppModelPais model) {
 		super(parent, model)
-		title = "Mapamundi-EditarPais"
+		title = defaultTitle
 	}
 	
 	def defaultTitle(){
@@ -35,7 +34,7 @@ class EditarPaisWindow extends TransactionalDialog<Pais>{
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Nombre"
 		new TextBox(mainPanel) => [
-			value <=> "nombre"
+			value <=> "pais.nombre"
 			width = 250
 		]
 		
@@ -50,7 +49,7 @@ class EditarPaisWindow extends TransactionalDialog<Pais>{
 		]
 		
 		new List(mainPanel) => [
-			items <=> "caracteristicas"
+			items <=> "pais.caracteristicas"
 		]
 		
 		val segundaFila = new Panel(mainPanel) => [
@@ -64,7 +63,7 @@ class EditarPaisWindow extends TransactionalDialog<Pais>{
 		]
 		
 		new List(mainPanel) => [
-			items <=> "conexiones"
+			items <=> "pais.conexiones"
 		]
 		
 		val terceraFila = new Panel(mainPanel) => [
@@ -78,7 +77,7 @@ class EditarPaisWindow extends TransactionalDialog<Pais>{
 		]
 		
 		new List(mainPanel) => [
-			items <=> "lugaresDeInteres"
+			items <=> "pais.lugaresDeInteres"
 		]
 	}
 	
@@ -91,7 +90,16 @@ class EditarPaisWindow extends TransactionalDialog<Pais>{
 	}
 	
 	def editarCaracteristicas() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		new EditarCaracteristicas(this, modelObject).open()
 	}
+	
+	override executeTask(){
+		
+		
+		modelObject.actualizarPaises()
+
+		super.executeTask()
+	}
+	
 	
 }

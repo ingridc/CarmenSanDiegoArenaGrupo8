@@ -1,7 +1,6 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
 
-
 import org.uqbar.arena.windows.SimpleWindow
 import tp1.CarmenSanDiego
 import org.uqbar.arena.windows.WindowOwner
@@ -12,6 +11,9 @@ import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
+import org.uqbar.arena.bindings.ObservableProperty
+import org.uqbar.arena.bindings.PropertyAdapter
+import tp1.Pais
 
 class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 	
@@ -62,13 +64,11 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 		
 		new Label(panelIzq).text = "Paises"
 		
-
+		val paisesList = new List(panelIzq)
+		paisesList.bindValueToProperty("paisElegido")
+		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "mapamundi.paises")) 
+		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
-		new List(panelIzq) => [
-			
-			items <=> "mapamundi.paises"
-			value <=> "paisElegido" 
-		]
 		
 		new Button(panelIzq) => [
 			
@@ -90,14 +90,12 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 	}
 	
 	def editarPais() {
-		new EditarPaisWindow(this,modelObject.getPaisElegido).open()
+		new EditarPaisWindow( this ,new AppModelPais(modelObject.getPaisElegido, modelObject)).open()
 	}
 	
 	def nuevoPais(){
 		new NuevoPaisWindow(this).open()
 	}
-	
-
 	
 	
 }

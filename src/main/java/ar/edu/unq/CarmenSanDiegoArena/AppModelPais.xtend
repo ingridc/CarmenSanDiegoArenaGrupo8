@@ -21,20 +21,26 @@ class AppModelPais {
 	}
 	
 	def eliminarCaracteristicaSeleccionada() {
-		var newCarac = pais.caracteristicas
-		newCarac.remove(caracteristicaSeleccionada) 
+		pais.caracteristicas.remove(caracteristicaSeleccionada) 
 		
-		ObservableUtils.firePropertyChanged(this, "pais.caracteristicas", newCarac)
+		ObservableUtils.firePropertyChanged(this, "pais.caracteristicas")
 	}
 	
 	def guardarCaracteristicaSeleccionada() {
 		pais.caracteristicas.add(caracteristicaSeleccionada)
+		ObservableUtils.firePropertyChanged(this, "pais.caracteristicas")
 	}
 	
 	def actualizarPaises(){
 		
 		model.paisElegido = pais
+		
 		ObservableUtils.firePropertyChanged(model, "paisElegido")
+	}
+	
+	def nuevoPais() {
+		model.mapamundi.add(pais)
+		ObservableUtils.firePropertyChanged(model, "mapamundi")
 	}
 	
 }

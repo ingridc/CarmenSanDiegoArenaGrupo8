@@ -42,7 +42,7 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 	def crearAtributos(Panel panelDer){
 		new Label(panelDer).text = "Nombre:"
 		new Label(panelDer) => [
-			value <=> "paisElegido"
+			value <=> "paisElegido.nombre"
 		]
 		new Label(panelDer).text = "Caracteristicas"
 		new List(panelDer) => [
@@ -66,7 +66,7 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 		
 		val paisesList = new List(panelIzq)
 		paisesList.bindValueToProperty("paisElegido")
-		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "mapamundi.paises")) 
+		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "mapamundi")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
 		
@@ -94,7 +94,7 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 	}
 	
 	def nuevoPais(){
-		new NuevoPaisWindow(this).open()
+		new NuevoPaisWindow(this,modelObject).open()
 	}
 	
 	

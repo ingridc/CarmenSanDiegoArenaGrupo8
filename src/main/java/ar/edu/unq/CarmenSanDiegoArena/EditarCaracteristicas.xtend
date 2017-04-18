@@ -32,7 +32,7 @@ class EditarCaracteristicas extends TransactionalDialog<AppModelPais>{
 		
 		new Label(mainPanel).text = "Caracteristicas"
 		new List(mainPanel) => [
-			items <=> "caracteristicas"
+			items <=> "pais.caracteristicas"
 			value <=> "caracteristicaSeleccionada"
 		]
 		

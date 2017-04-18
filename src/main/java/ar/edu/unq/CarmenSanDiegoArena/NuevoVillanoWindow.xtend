@@ -13,7 +13,7 @@ class NuevoVillanoWindow extends EditarVillanoWindow{
 	
 	override executeTask(){
 		modelObject.nuevoVillano
-		modelObject.model.actualizarVillano
+		//modelObject.model.actualizarVillano
 		super.executeTask()
 	}
 	

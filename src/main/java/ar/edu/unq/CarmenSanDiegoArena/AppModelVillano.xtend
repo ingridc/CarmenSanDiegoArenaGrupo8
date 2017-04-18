@@ -2,7 +2,6 @@ package ar.edu.unq.CarmenSanDiegoArena
 
 import tp1.Villano
 import tp1.CarmenSanDiego
-import java.util.List
 import org.eclipse.xtend.lib.annotations.Accessors
 import org.uqbar.commons.utils.Observable
 import org.uqbar.commons.model.ObservableUtils
@@ -17,15 +16,13 @@ class AppModelVillano extends Entity {
 	CarmenSanDiego model
 	String hobbie
 	String sena
-	String nombre
-	String sexo
+
 
 	
 	new(Villano villanoNuevo, CarmenSanDiego modelo){
 		villano = villanoNuevo
 		model = modelo
-		nombre = villanoNuevo.nombre
-		sexo = villanoNuevo.sexo
+
 
 
 		

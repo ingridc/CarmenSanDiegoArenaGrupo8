@@ -7,15 +7,24 @@ import tp1.Villano
 import tp1.Caso
 import tp1.Pais
 import tp1.Lugar
+import tp1.Biblioteca
+import tp1.Banco
+import tp1.Embajada
 
 class CarmenSanDiegoApplication extends Application {
 	
 	/*
 	 *  ESTO ES SOLO PARA ARRANCAR, EL APPLICATION MODEL ES CARMENSANDIEGO
+	 * 
 	 */
+	 
 	
 	var caracteristicas = new ArrayList<String>
 	val carmenSanDiego = new Villano("Carmen San Diego","femenino",new ArrayList<String>, new ArrayList<String>)
+	val banco = new Banco(carmenSanDiego)
+	val embajada = new Embajada(carmenSanDiego)
+	val biblioteca = new Biblioteca(carmenSanDiego)
+	val lugares = new ArrayList<Lugar>
 	val pepe = new Villano("Pepe","masculino",new ArrayList<String>, new ArrayList<String>)
 	val argentina = new Pais("Argentina",caracteristicas,new ArrayList<Lugar>, new ArrayList<Pais>)
 	val egipto = new Pais("Egipto", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
@@ -37,6 +46,10 @@ escena del crimen no contaba con pista alguna
  
 	override protected createMainWindow() {
 		 val juego = new CarmenSanDiego => [
+		 	lugares.add(banco)
+		 	lugares.add(embajada)
+		 	lugares.add(biblioteca)
+		 	argentina.setLugares(lugares)
 			planDeE.add(argentina)
 			planDeE.add(mexico)
 			caracteristicas.add("estoNofunca")
@@ -54,6 +67,8 @@ escena del crimen no contaba con pista alguna
 					]
 		new PantallaPrincipal(this,juego)
 	}
+	
+
 	
 
 	

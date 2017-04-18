@@ -27,13 +27,13 @@ class EditarVillanoWindow extends TransactionalDialog<AppModelVillano>{
 		new Label(mainPanel).text = "Nombre:"
 		new TextBox(mainPanel) => [
 			value <=> "villano.nombre"
-			width = 100
+			width = 250
 		]
 
 		new Label(mainPanel).text = "Sexo:"
 		new TextBox(mainPanel) => [
 			value <=> "villano.sexo"
-			width = 100
+			width = 250
 		]
 		
 		new Label(mainPanel).text = "Señas Particulares"

@@ -16,7 +16,7 @@ class LugarWindow extends SimpleWindow<AppModelLugar>{
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
-		new Label(mainPanel).text = modelObject.lugar.obtenerPista(modelObject.model.casoActual).toString()
+		new Label(mainPanel).text = modelObject.lugar.obtenerPista(modelObject.partida.casoActual).toString()
 	}
 	
 }

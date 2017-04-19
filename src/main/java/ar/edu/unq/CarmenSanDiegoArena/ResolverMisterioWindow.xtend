@@ -13,10 +13,13 @@ import org.uqbar.arena.bindings.ObservableProperty
 import tp1.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
 import tp1.Lugar
+import tp1.AppModelPartida
+import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 
-class ResolverMisterioWindow extends SimpleWindow<CarmenSanDiego> {
+
+class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
-	new(WindowOwner parent, CarmenSanDiego model) {
+	new(WindowOwner parent, AppModelPartida model) {
 		super(parent, model)
 	}
 	
@@ -31,7 +34,10 @@ class ResolverMisterioWindow extends SimpleWindow<CarmenSanDiego> {
 		val verticalH1 = new Panel(horizontal1)
 		val verticalH2 = new Panel(horizontal1)
 		
-		new Label(verticalH1).text = "Usted esta en:" + modelObject.ubicacionActual.nombre
+		new Label(verticalH1).text = "Usted esta en:" 
+		new Label(verticalH1) => [
+			value <=> "ubicacionActual.nombre"
+		]
 		
 		new Button(verticalH1) => [
 			caption = "Orden de arresto"
@@ -88,7 +94,7 @@ class ResolverMisterioWindow extends SimpleWindow<CarmenSanDiego> {
 	}
 	
 	def abrirExpediente() {
-		new ExpedientesRestrictedWindow(this, modelObject).open()
+		new ExpedientesRestrictedWindow(this, modelObject.model).open()
 	}
 	
 }

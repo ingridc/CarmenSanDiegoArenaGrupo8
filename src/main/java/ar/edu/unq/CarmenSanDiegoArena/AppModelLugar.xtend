@@ -1,22 +1,20 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-import tp1.Lugar
-import tp1.CarmenSanDiego
-import org.uqbar.commons.utils.Observable
 import org.eclipse.xtend.lib.annotations.Accessors
+import org.uqbar.commons.utils.Observable
+import tp1.Lugar
+import tp1.AppModelPartida
 
-@Observable
 @Accessors
-
+@Observable
 class AppModelLugar {
+	
 	Lugar lugar
-	CarmenSanDiego model
+	AppModelPartida partida
 	
-	new(Lugar lugarActual, CarmenSanDiego carmenSanDiego){
+	new(Lugar lugarActual, AppModelPartida partidaActual){
+		
 		lugar = lugarActual
-		model = carmenSanDiego
+		partida = partidaActual
 	}
-	
-	
-	
 }

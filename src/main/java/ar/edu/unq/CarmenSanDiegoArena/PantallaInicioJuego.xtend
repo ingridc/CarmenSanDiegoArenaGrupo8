@@ -8,12 +8,12 @@ import org.uqbar.arena.widgets.Label
 
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import java.awt.Color
-import tp1.CarmenSanDiego
 import org.uqbar.arena.widgets.Button
+import tp1.AppModelPartida
 
-class PantallaInicioJuego extends SimpleWindow<CarmenSanDiego> {
+class PantallaInicioJuego extends SimpleWindow<AppModelPartida> {
 	
-	new(WindowOwner parent, CarmenSanDiego model) {
+	new(WindowOwner parent, AppModelPartida model) {
 		super(parent, model)
 		title = "Caso a resolver"
 	}
@@ -26,10 +26,10 @@ class PantallaInicioJuego extends SimpleWindow<CarmenSanDiego> {
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
-		new Label(mainPanel).text = "Detective tenemos un caso para usted!"
+		new Label(mainPanel).text = "Detective tenemos un caso para usted! Ocurrio en:"
 		new Label(mainPanel) => [
     	background = Color.YELLOW
-    	value <=> "casoActual.reporte"
+    	value <=> "casoActual.lugarDeRobo.nombre"
     	height = 200
     	width = 350
 		]

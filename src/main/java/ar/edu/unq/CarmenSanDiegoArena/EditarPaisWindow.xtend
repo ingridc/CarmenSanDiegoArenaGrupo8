@@ -11,6 +11,9 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.List
 
 import org.uqbar.arena.aop.windows.TransactionalDialog
+import org.uqbar.arena.bindings.ObservableProperty
+import tp1.Pais
+import org.uqbar.arena.bindings.PropertyAdapter
 
 class EditarPaisWindow extends TransactionalDialog<AppModelPais>{
 	
@@ -62,9 +65,9 @@ class EditarPaisWindow extends TransactionalDialog<AppModelPais>{
 			onClick [| editarConexiones]
 		]
 		
-		new List(mainPanel) => [
-			items <=> "pais.conexiones"
-		]
+		val conexionesList = new List(mainPanel)
+		val conexionesProperty = conexionesList.bindItems(new ObservableProperty(modelObject, "pais.conexiones")) 
+		conexionesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
 		val terceraFila = new Panel(mainPanel) => [
 		layout = new HorizontalLayout
@@ -82,11 +85,11 @@ class EditarPaisWindow extends TransactionalDialog<AppModelPais>{
 	}
 	
 	def editarLugares() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		new EditarLugares(this, modelObject).open()
 	}
 	
 	def editarConexiones() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		new EditarConexiones(this, modelObject).open()
 	}
 	
 	def editarCaracteristicas() {

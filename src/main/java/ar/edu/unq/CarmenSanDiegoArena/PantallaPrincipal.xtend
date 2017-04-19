@@ -40,7 +40,8 @@ class PantallaPrincipal extends SimpleWindow<CarmenSanDiego> {
 	}
 	
 	def inicioDeJuego() {
-		(new PantallaInicioJuego(this, modelObject)).open()
+		val partida = modelObject.generarPartida()
+		(new PantallaInicioJuego(this, partida)).open()
 	}
 	
 	def iniciarMapamundi(){

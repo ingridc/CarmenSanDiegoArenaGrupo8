@@ -1,7 +1,7 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
 
-import org.uqbar.arena.windows.SimpleWindow
+
 import tp1.Pais
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
@@ -11,11 +11,11 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Selector
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
+import org.uqbar.arena.aop.windows.TransactionalDialog
 
-
-class EditarLugares extends SimpleWindow<Pais>{
+class EditarLugares extends TransactionalDialog<AppModelPais>{
 	
-	new(WindowOwner parent, Pais model) {
+	new(WindowOwner parent, AppModelPais model) {
 		super(parent, model)
 		title = "Editar lugares"
 	}
@@ -24,7 +24,7 @@ class EditarLugares extends SimpleWindow<Pais>{
 		
 		new Button(actionsPanel) => [
 			caption = "Aceptar"
-			onClick [ | /*deberia guardar */]
+			onClick [ | this.accept]
 		]
 		
 	}
@@ -32,12 +32,13 @@ class EditarLugares extends SimpleWindow<Pais>{
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Lugares de interes"
 		new List(mainPanel) => [
-			items <=> "modelObject.lugares"
+			items <=> "pais.lugaresDeInteres"
+			value <=> "lugarSeleccionado"
 		]
 		
 		new Button(mainPanel) => [
 			caption = "Eliminar"
-			onClick [ | /*eliminar lugar seleccionado */]
+			onClick [ | modelObject.eliminarLugarSeleccionado()]
 		]
 		
 		val panelAgregar = new Panel(mainPanel)
@@ -45,13 +46,13 @@ class EditarLugares extends SimpleWindow<Pais>{
 		
 		new Selector<Pais>(panelAgregar) => [
 			allowNull(false)
-			value <=> "lugar" //igual no creo que se deba bindear contra la lista sino agregar a la lista pero eso lo deberia hacer el boton agregar
-			items <=> "lugares"
+			value <=> "lugarSeleccionado" 
+			items <=> "model.lugares"
 		]
 		
 		new Button(panelAgregar) => [
 			caption = "Agregar"
-			onClick [ | /* mismo dilema de arriba  */]
+			onClick [ | modelObject.guardarLugarSeleccionado()]
 		]
 	}
 	

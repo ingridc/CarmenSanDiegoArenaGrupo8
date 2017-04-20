@@ -8,10 +8,9 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.aop.windows.TransactionalDialog
+import org.uqbar.arena.windows.Dialog
 
-
-class EditarCaracteristicas extends TransactionalDialog<AppModelPais>{
+class EditarCaracteristicas extends Dialog<AppModelPais>{
 	
 	new(WindowOwner parent, AppModelPais model) {
 		super(parent, model)

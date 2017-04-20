@@ -2,7 +2,6 @@ package ar.edu.unq.CarmenSanDiegoArena
 
 
 import org.uqbar.arena.windows.SimpleWindow
-import tp1.CarmenSanDiego
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
@@ -86,11 +85,11 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	}
 	
 	def abrirOrdenDeArresto() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		new OrdenDeArrestoWindow(this, modelObject.model).open()
 	}
 	
 	def abrirSeleccionDeDestino() {
-		throw new UnsupportedOperationException("TODO: auto-generated method stub")
+		new ViajarWindow(this, modelObject).open()
 	}
 	
 	def abrirExpediente() {

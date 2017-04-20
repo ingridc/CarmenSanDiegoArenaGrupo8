@@ -10,12 +10,11 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Selector
-import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import org.uqbar.arena.aop.windows.TransactionalDialog
 import org.uqbar.arena.bindings.ObservableProperty
 import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.windows.Dialog
 
-class EditarConexiones extends TransactionalDialog<AppModelPais>{
+class EditarConexiones extends Dialog<AppModelPais>{
 	
 	
 	new(WindowOwner parent, AppModelPais model) {

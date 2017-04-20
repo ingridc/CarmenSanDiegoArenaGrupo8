@@ -4,7 +4,6 @@ import org.uqbar.arena.Application
 import java.util.ArrayList
 import tp1.CarmenSanDiego
 import tp1.Villano
-import tp1.Caso
 
 import tp1.Lugar
 import tp1.Biblioteca
@@ -20,7 +19,7 @@ class CarmenSanDiegoApplication extends Application {
 	 */
 	 
 	
-	var caracteristicas = new ArrayList<String>
+	var caracteristicas = #["feo","hay musulmanes"]
 	val carmenSanDiego = new Villano("Carmen San Diego","femenino",new ArrayList<String>, new ArrayList<String>)
 	val banco = new Banco(carmenSanDiego)
 	val embajada = new Embajada(carmenSanDiego)
@@ -31,19 +30,20 @@ class CarmenSanDiegoApplication extends Application {
 	val egipto = new Pais("Egipto", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
 	val mexico = new Pais("Mexico", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
 	val noruega = new Pais("Noruega", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
-
+	val conexiones1 = #[mexico,noruega]
 	
  
 	override protected createMainWindow() {
 		 val juego = new CarmenSanDiego => [
+		 	argentina.conexiones = conexiones1
 		 	listLugares.add(banco)
 		 	listLugares.add(embajada)
 		 	listLugares.add(biblioteca)
 		 	setLugares(listLugares)
 		 	argentina.setLugares(listLugares)
 		 	egipto.setLugares(listLugares)
-			caracteristicas.add("estoNofunca")
-			caracteristicas.add("rompio todo")
+			
+			agregarNuevoPais(argentina)
 			agregarNuevoPais(egipto)
 			agregarNuevoPais(mexico)
 			agregarNuevoPais(noruega)

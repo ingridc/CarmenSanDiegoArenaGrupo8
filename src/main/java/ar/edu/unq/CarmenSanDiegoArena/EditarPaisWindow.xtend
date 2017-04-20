@@ -10,12 +10,12 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.List
 
-import org.uqbar.arena.aop.windows.TransactionalDialog
 import org.uqbar.arena.bindings.ObservableProperty
 import tp1.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
+import org.uqbar.arena.windows.Dialog
 
-class EditarPaisWindow extends TransactionalDialog<AppModelPais>{
+class EditarPaisWindow extends Dialog<AppModelPais>{
 	
 	new(WindowOwner parent, AppModelPais model) {
 		super(parent, model)

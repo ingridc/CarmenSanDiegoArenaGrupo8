@@ -1,6 +1,5 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-
 import org.uqbar.arena.windows.SimpleWindow
 import tp1.CarmenSanDiego
 import org.uqbar.arena.windows.WindowOwner
@@ -13,6 +12,7 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.bindings.PropertyAdapter
 import tp1.Villano
 import org.uqbar.arena.bindings.ObservableProperty
+import appModel.AppModelVillano
 
 class ExpedientesWindow extends SimpleWindow<CarmenSanDiego>{
 	
@@ -78,7 +78,4 @@ class ExpedientesWindow extends SimpleWindow<CarmenSanDiego>{
 		(new NuevoVillanoWindow(this, modelObject)).open()
 		
 	}
-	
-	
-	
 }

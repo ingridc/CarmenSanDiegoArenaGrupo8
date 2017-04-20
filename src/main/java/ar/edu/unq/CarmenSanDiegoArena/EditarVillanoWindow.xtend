@@ -1,6 +1,5 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
@@ -9,6 +8,7 @@ import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.windows.Dialog
+import appModel.AppModelVillano
 
 class EditarVillanoWindow extends Dialog<AppModelVillano>{
 	
@@ -44,8 +44,7 @@ class EditarVillanoWindow extends Dialog<AppModelVillano>{
 		new List(mainPanel) => [
 			items <=> "villano.senas_particulares"
 		]
-		
-		
+			
 		new Label(mainPanel).text = "Hobbies"
 		new Button(mainPanel) => [
 			caption = "Editar Hobbies"
@@ -65,13 +64,7 @@ class EditarVillanoWindow extends Dialog<AppModelVillano>{
 	}
 	
 	override executeTask(){
-		
-		
 		modelObject.actualizarVillanos()
-
 		super.executeTask()
 	}
-	
-	
-	
 }

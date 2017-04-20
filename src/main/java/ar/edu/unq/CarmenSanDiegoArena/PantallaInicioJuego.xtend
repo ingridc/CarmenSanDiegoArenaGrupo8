@@ -1,15 +1,13 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
-
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import java.awt.Color
 import org.uqbar.arena.widgets.Button
-import tp1.AppModelPartida
+import appModel.AppModelPartida
 
 class PantallaInicioJuego extends SimpleWindow<AppModelPartida> {
 	
@@ -39,6 +37,4 @@ class PantallaInicioJuego extends SimpleWindow<AppModelPartida> {
 		this.close()
 		(new ResolverMisterioWindow(this, modelObject)).open()
 	}
-	
-	
 }

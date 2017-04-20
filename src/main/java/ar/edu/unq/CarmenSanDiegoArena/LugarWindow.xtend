@@ -4,6 +4,7 @@ import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
+import appModel.AppModelLugar
 
 class LugarWindow extends SimpleWindow<AppModelLugar>{
 	
@@ -18,5 +19,4 @@ class LugarWindow extends SimpleWindow<AppModelLugar>{
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = modelObject.lugar.obtenerPista(modelObject.partida.casoActual).toString()
 	}
-	
 }

@@ -1,6 +1,5 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
@@ -12,9 +11,9 @@ import org.uqbar.arena.bindings.ObservableProperty
 import tp1.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
 import tp1.Lugar
-import tp1.AppModelPartida
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-
+import appModel.AppModelPartida
+import appModel.AppModelLugar
 
 class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
@@ -23,10 +22,9 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	}
 	
 	override protected addActions(Panel arg0) {
-			}
+	}
 	
 	override protected createFormPanel(Panel mainPanel) {
-		
 		val horizontal1 = new Panel(mainPanel)
 		horizontal1.layout = new HorizontalLayout
 		
@@ -76,8 +74,6 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		val listaRecorridoX = new List(mainPanel)
 		val paisesPropertyX = listaRecorrido.bindItems(new ObservableProperty(modelObject, "recorridoIncorrecto")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre") 
-		
-		
 	}
 	
 	def abrirLugar(Lugar lugar) {
@@ -94,6 +90,5 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
 	def abrirExpediente() {
 		new ExpedientesRestrictedWindow(this, modelObject.model).open()
-	}
-	
+	}	
 }

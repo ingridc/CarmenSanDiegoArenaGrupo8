@@ -9,6 +9,7 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.windows.Dialog
+import appModel.AppModelPais
 
 class EditarCaracteristicas extends Dialog<AppModelPais>{
 	
@@ -17,18 +18,14 @@ class EditarCaracteristicas extends Dialog<AppModelPais>{
 		title = "Editar Caracteristicas"
 	}
 
-	
-	override protected addActions(Panel actionsPanel) {
-		
+	override protected addActions(Panel actionsPanel) {		
 		new Button(actionsPanel) => [
 			caption = "Aceptar"
 			onClick [ | this.accept]
 		]
-		
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
-		
 		new Label(mainPanel).text = "Caracteristicas"
 		new List(mainPanel) => [
 			items <=> "pais.caracteristicas"
@@ -52,6 +49,4 @@ class EditarCaracteristicas extends Dialog<AppModelPais>{
 			onClick [ | modelObject.guardarCaracteristicaSeleccionada()]
 		]
 	}
-
-	
 }

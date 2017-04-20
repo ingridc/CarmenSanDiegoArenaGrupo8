@@ -17,8 +17,6 @@ class CarmenSanDiegoApplication extends Application {
 	 *  ESTO ES SOLO PARA ARRANCAR, EL APPLICATION MODEL ES CARMENSANDIEGO
 	 * 
 	 */
-	 
-	
 	var caracteristicas = #["feo","hay musulmanes"]
 	val carmenSanDiego = new Villano("Carmen San Diego","femenino",new ArrayList<String>, new ArrayList<String>)
 	val banco = new Banco(carmenSanDiego)
@@ -32,7 +30,6 @@ class CarmenSanDiegoApplication extends Application {
 	val noruega = new Pais("Noruega", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
 	val conexiones1 = #[mexico,noruega]
 	
- 
 	override protected createMainWindow() {
 		 val juego = new CarmenSanDiego => [
 		 	argentina.conexiones = conexiones1
@@ -49,14 +46,9 @@ class CarmenSanDiegoApplication extends Application {
 			agregarNuevoPais(noruega)
 			agregarVillano(carmenSanDiego)
 			agregarVillano(pepe)
-
-					]
+		]
 		new PantallaPrincipal(this,juego)
 	}
-	
-
-	
-
 	
 	static def main(String[] args) {
 		new CarmenSanDiegoApplication().start

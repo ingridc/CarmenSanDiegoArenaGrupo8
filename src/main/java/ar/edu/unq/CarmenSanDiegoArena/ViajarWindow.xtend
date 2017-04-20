@@ -8,11 +8,9 @@ import org.uqbar.arena.widgets.List
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.Dialog
 import org.uqbar.arena.windows.WindowOwner
-import tp1.CarmenSanDiego
 import tp1.Pais
-
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-import tp1.AppModelPartida
+import appModel.AppModelPartida
 
 class ViajarWindow extends Dialog<AppModelPartida>{
 	
@@ -34,8 +32,6 @@ class ViajarWindow extends Dialog<AppModelPartida>{
 		super.executeTask()
 	}
 	
-
-	
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Estas en:"
 		new Label(mainPanel) => [
@@ -46,5 +42,4 @@ class ViajarWindow extends Dialog<AppModelPartida>{
 		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "ubicacionActual.conexiones")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 	}
-	
 }

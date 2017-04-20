@@ -7,12 +7,10 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Selector
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Label
-import org.uqbar.arena.widgets.Button
 
 class OrdenDeArrestoWindow extends SimpleWindow<CarmenSanDiego> {
 	
 	// CAMBIAR A APPMODELVILLANOS
-	
 	new(WindowOwner parent, CarmenSanDiego model) {
 		super(parent, model)
 	}
@@ -35,10 +33,6 @@ class OrdenDeArrestoWindow extends SimpleWindow<CarmenSanDiego> {
 		new Selector(mainPanel) => [
 			items <=> "villanos"
 			value <=> "villanoElegido"
-		]
-		
-		
-		
+		]	
 	}
-	
 }

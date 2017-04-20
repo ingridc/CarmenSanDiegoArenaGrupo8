@@ -1,7 +1,5 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-
-
 import tp1.Pais
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.windows.WindowOwner
@@ -13,9 +11,9 @@ import org.uqbar.arena.widgets.Selector
 import org.uqbar.arena.bindings.ObservableProperty
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.windows.Dialog
+import appModel.AppModelPais
 
 class EditarConexiones extends Dialog<AppModelPais>{
-	
 	
 	new(WindowOwner parent, AppModelPais model) {
 		super(parent, model)
@@ -57,8 +55,6 @@ class EditarConexiones extends Dialog<AppModelPais>{
 		new Button(panelAgregar) => [
 			caption = "Agregar"
 			onClick [ | modelObject.guardarConexionSeleccionada()]
-		]
-		
+		]	
 	}
-	
 }

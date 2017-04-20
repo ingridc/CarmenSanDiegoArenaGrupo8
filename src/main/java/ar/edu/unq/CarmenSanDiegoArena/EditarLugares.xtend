@@ -1,7 +1,5 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
-
-
 import tp1.Pais
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
@@ -12,6 +10,7 @@ import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.Selector
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.windows.Dialog
+import appModel.AppModelPais
 
 class EditarLugares extends Dialog<AppModelPais>{
 	
@@ -55,6 +54,4 @@ class EditarLugares extends Dialog<AppModelPais>{
 			onClick [ | modelObject.guardarLugarSeleccionado()]
 		]
 	}
-	
-	
 }

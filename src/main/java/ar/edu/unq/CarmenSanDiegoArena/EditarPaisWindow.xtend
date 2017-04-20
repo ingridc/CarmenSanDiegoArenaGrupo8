@@ -5,15 +5,14 @@ import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.TextBox
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
-
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.layout.HorizontalLayout
 import org.uqbar.arena.widgets.List
-
 import org.uqbar.arena.bindings.ObservableProperty
 import tp1.Pais
 import org.uqbar.arena.bindings.PropertyAdapter
 import org.uqbar.arena.windows.Dialog
+import appModel.AppModelPais
 
 class EditarPaisWindow extends Dialog<AppModelPais>{
 	
@@ -97,12 +96,7 @@ class EditarPaisWindow extends Dialog<AppModelPais>{
 	}
 	
 	override executeTask(){
-		
-		
 		modelObject.actualizarPaises()
-
 		super.executeTask()
 	}
-	
-	
 }

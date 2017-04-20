@@ -65,7 +65,7 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 		
 		val paisesList = new List(panelIzq)
 		paisesList.bindValueToProperty("paisElegido")
-		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "mapamundi")) 
+		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "mapamundi.paises")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
 		

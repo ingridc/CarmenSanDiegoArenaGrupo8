@@ -1,5 +1,6 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
+
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
@@ -14,6 +15,7 @@ import tp1.Lugar
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import appModel.AppModelPartida
 import appModel.AppModelLugar
+import appModel.AppModelVillanos
 
 class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
@@ -22,9 +24,10 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	}
 	
 	override protected addActions(Panel arg0) {
-	}
+			}
 	
 	override protected createFormPanel(Panel mainPanel) {
+		
 		val horizontal1 = new Panel(mainPanel)
 		horizontal1.layout = new HorizontalLayout
 		
@@ -35,6 +38,8 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		new Label(verticalH1) => [
 			value <=> "ubicacionActual.nombre"
 		]
+		
+
 		
 		new Button(verticalH1) => [
 			caption = "Orden de arresto"
@@ -58,11 +63,15 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		]
 		
 		new Button(verticalH2) => [
-			caption = modelObject.ubicacionActual.lugaresDeInteres.get(1).toString()
+			val lugar1 = modelObject.ubicacionActual.lugaresDeInteres.get(1)
+			caption = lugar1.toString()
+			onClick[| abrirLugar(lugar1)]
 		]
 		
 		new Button(verticalH2) => [
-			caption = modelObject.ubicacionActual.lugaresDeInteres.get(2).toString()
+			val lugar1 = modelObject.ubicacionActual.lugaresDeInteres.get(2)
+			caption = lugar1.toString()
+			onClick[| abrirLugar(lugar1)]
 		]
 		
 		new Label(mainPanel).text = "Recorrido Criminal:"
@@ -72,8 +81,10 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		new Label(mainPanel).text = "Destinos Fallidos:"
 		
 		val listaRecorridoX = new List(mainPanel)
-		val paisesPropertyX = listaRecorrido.bindItems(new ObservableProperty(modelObject, "recorridoIncorrecto")) 
-		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre") 
+		val paisesPropertyX = listaRecorridoX.bindItems(new ObservableProperty(modelObject, "recorridoIncorrecto")) 
+		paisesPropertyX.adapter = new PropertyAdapter(typeof(Pais), "nombre") 
+		
+		
 	}
 	
 	def abrirLugar(Lugar lugar) {
@@ -81,7 +92,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	}
 	
 	def abrirOrdenDeArresto() {
-		new OrdenDeArrestoWindow(this, modelObject.model).open()
+		new OrdenDeArrestoWindow(this, new AppModelVillanos(modelObject.model.villanos)).open()
 	}
 	
 	def abrirSeleccionDeDestino() {
@@ -90,5 +101,6 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
 	def abrirExpediente() {
 		new ExpedientesRestrictedWindow(this, modelObject.model).open()
-	}	
+	}
+	
 }

@@ -57,21 +57,20 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		
 		new Label(verticalH2).text = "Lugares"
 		new Button(verticalH2) => [
-			val lugar1 = modelObject.ubicacionActual.lugaresDeInteres.get(0)
-			caption = lugar1.toString()
-			onClick[| abrirLugar(lugar1)]
+			caption = modelObject.ubicacionActual.lugaresDeInteres.get(0).toString()
+			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(0))]
 		]
 		
 		new Button(verticalH2) => [
-			val lugar1 = modelObject.ubicacionActual.lugaresDeInteres.get(1)
-			caption = lugar1.toString()
-			onClick[| abrirLugar(lugar1)]
+			caption = modelObject.ubicacionActual.lugaresDeInteres.get(1).toString()
+			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(1))
+			]
 		]
 		
 		new Button(verticalH2) => [
-			val lugar1 = modelObject.ubicacionActual.lugaresDeInteres.get(2)
-			caption = lugar1.toString()
-			onClick[| abrirLugar(lugar1)]
+			
+			caption = modelObject.ubicacionActual.lugaresDeInteres.get(2).toString()
+			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(2))]
 		]
 		
 		new Label(mainPanel).text = "Recorrido Criminal:"

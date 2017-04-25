@@ -25,7 +25,7 @@ class CarmenSanDiegoApplication extends Application {
 	val listLugares = new ArrayList<Lugar>
 	val listLugares2 = new ArrayList<Lugar>
 	val listLugares3 = new ArrayList<Lugar>
-	
+	val listLugares4 = new ArrayList<Lugar>
 	val pepe = new Villano("Pepe","masculino",new ArrayList<String>, new ArrayList<String>)
 	val argentina = new Pais("Argentina",caracteristicas,new ArrayList<Lugar>, new ArrayList<Pais>)
 	val egipto = new Pais("Egipto", caracteristicas, new ArrayList<Lugar>,new ArrayList<Pais>)
@@ -50,11 +50,14 @@ class CarmenSanDiegoApplication extends Application {
 		 	listLugares3.add(new Banco)
 		 	listLugares3.add(new Embajada)
 		 	listLugares3.add(new Biblioteca())
+		 	listLugares4.add(new Banco)
+		 	listLugares4.add(new Embajada)
+		 	listLugares4.add(new Biblioteca())
 		 	setLugares(listLugares)
-		 	argentina.setLugares(listLugares)
-		 	egipto.setLugares(listLugares)
+		 	argentina.setLugares(listLugares2)
+		 	egipto.setLugares(listLugares3)
 			noruega.setLugares(listLugares)
-			mexico.setLugares(listLugares)
+			mexico.setLugares(listLugares4)
 			agregarNuevoPais(argentina)
 			agregarNuevoPais(egipto)
 			agregarNuevoPais(mexico)

@@ -71,11 +71,11 @@ class ExpedientesWindow extends SimpleWindow<AppModelVillanos>{
 	}
 	
 	def editarVillano() {
-		new EditarVillanoWindow(this, new AppModelVillano(modelObject.getVillanoElegido())).open()
+		new EditarVillanoWindow(this, new AppModelVillano(modelObject.getVillanoElegido(), modelObject)).open()
 	}
 	
 	def nuevoVillano() {
-		(new NuevoVillanoWindow(this)).open()
+		(new NuevoVillanoWindow(this, modelObject)).open()
 		
 	}
 }

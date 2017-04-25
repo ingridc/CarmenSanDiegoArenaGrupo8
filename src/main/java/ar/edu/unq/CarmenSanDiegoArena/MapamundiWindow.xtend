@@ -91,7 +91,7 @@ class MapamundiWindow extends SimpleWindow<AppModelMapamundi>{
 	}
 	
 	def editarPais() {
-		new EditarPaisWindow( this ,new AppModelPais(modelObject.paisSeleccionado)).open()
+		new EditarPaisWindow( this ,new AppModelPais(modelObject.paisSeleccionado,modelObject)).open()
 	}
 	
 	def nuevoPais(){

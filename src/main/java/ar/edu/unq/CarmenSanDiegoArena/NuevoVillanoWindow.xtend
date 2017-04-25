@@ -7,13 +7,13 @@ import appModel.AppModelVillano
 
 class NuevoVillanoWindow extends EditarVillanoWindow{
 	
-	new(WindowOwner parent, CarmenSanDiego model) {
-		super(parent, new AppModelVillano(new Villano(),model))
+	new(WindowOwner parent) {
+		super(parent, new AppModelVillano(new Villano()))
 	}
 	
 	override executeTask(){
 		modelObject.nuevoVillano
-		//modelObject.model.actualizarVillano
+		
 		super.executeTask()
 	}
 }

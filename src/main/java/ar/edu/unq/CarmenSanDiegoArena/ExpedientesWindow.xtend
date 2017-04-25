@@ -1,7 +1,6 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
 import org.uqbar.arena.windows.SimpleWindow
-import tp1.CarmenSanDiego
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.HorizontalLayout
@@ -13,10 +12,11 @@ import org.uqbar.arena.bindings.PropertyAdapter
 import tp1.Villano
 import org.uqbar.arena.bindings.ObservableProperty
 import appModel.AppModelVillano
+import appModel.AppModelVillanos
 
-class ExpedientesWindow extends SimpleWindow<CarmenSanDiego>{
+class ExpedientesWindow extends SimpleWindow<AppModelVillanos>{
 	
-	new(WindowOwner parent, CarmenSanDiego model) {
+	new(WindowOwner parent, AppModelVillanos model) {
 		super(parent, model)
 		title = "Expedientes"
 	}
@@ -71,11 +71,11 @@ class ExpedientesWindow extends SimpleWindow<CarmenSanDiego>{
 	}
 	
 	def editarVillano() {
-		new EditarVillanoWindow(this, new AppModelVillano(modelObject.getVillanoElegido(), modelObject)).open()
+		new EditarVillanoWindow(this, new AppModelVillano(modelObject.getVillanoElegido())).open()
 	}
 	
 	def nuevoVillano() {
-		(new NuevoVillanoWindow(this, modelObject)).open()
+		(new NuevoVillanoWindow(this)).open()
 		
 	}
 }

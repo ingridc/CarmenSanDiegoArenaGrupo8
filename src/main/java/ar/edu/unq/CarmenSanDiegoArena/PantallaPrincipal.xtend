@@ -6,12 +6,14 @@ import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.windows.SimpleWindow
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Button
+import appModel.AppModelMapamundi
+import appModel.AppModelVillanos
 
 class PantallaPrincipal extends SimpleWindow<CarmenSanDiego> {
 	
 	
-	new(WindowOwner parent,CarmenSanDiego model) {
-		super(parent,model)
+	new(WindowOwner parent) {
+		super(parent, new CarmenSanDiego)
 		title = "Donde esta Carmen San Diego?"
 	}
 	
@@ -45,11 +47,11 @@ class PantallaPrincipal extends SimpleWindow<CarmenSanDiego> {
 	}
 	
 	def iniciarMapamundi(){
-		(new MapamundiWindow(this, modelObject).open )
+		(new MapamundiWindow(this, new AppModelMapamundi).open )
 	}
 
 	def iniciarExpedientes(){
-		new ExpedientesWindow(this, modelObject).open 
+		new ExpedientesWindow(this, new AppModelVillanos).open 
 	}
 	
 }

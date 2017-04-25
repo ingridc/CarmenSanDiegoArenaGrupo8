@@ -88,10 +88,13 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
 	def abrirLugar(Lugar lugar) {
 		new LugarWindow(this,new AppModelLugar(lugar, modelObject)).open()
+		//if(modelObject.casoActual.planDeEscape.contains(modelObject.ubicacionActual)){
+			
+		//}
 	}
 	
 	def abrirOrdenDeArresto() {
-		new OrdenDeArrestoWindow(this, new AppModelVillanos(modelObject.model.villanos)).open()
+		new OrdenDeArrestoWindow(this, new AppModelVillanos()).open()
 	}
 	
 	def abrirSeleccionDeDestino() {
@@ -99,7 +102,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	}
 	
 	def abrirExpediente() {
-		new ExpedientesRestrictedWindow(this, modelObject.model).open()
+		new ExpedientesRestrictedWindow(this, new AppModelVillanos).open()
 	}
 	
 }

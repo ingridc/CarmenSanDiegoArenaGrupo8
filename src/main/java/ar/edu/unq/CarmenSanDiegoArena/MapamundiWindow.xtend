@@ -2,7 +2,6 @@ package ar.edu.unq.CarmenSanDiegoArena
 
 
 import org.uqbar.arena.windows.SimpleWindow
-import tp1.CarmenSanDiego
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.layout.VerticalLayout
@@ -15,10 +14,11 @@ import org.uqbar.arena.bindings.ObservableProperty
 import org.uqbar.arena.bindings.PropertyAdapter
 import tp1.Pais
 import appModel.AppModelPais
+import appModel.AppModelMapamundi
 
-class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
+class MapamundiWindow extends SimpleWindow<AppModelMapamundi>{
 	
-	new(WindowOwner parent, CarmenSanDiego model) {
+	new(WindowOwner parent, AppModelMapamundi model) {
 		super(parent, model)
 		title = "Mapamundi"
 	}
@@ -43,21 +43,21 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 	def crearAtributos(Panel panelDer){
 		new Label(panelDer).text = "Nombre:"
 		new Label(panelDer) => [
-			value <=> "paisElegido.nombre"
+			value <=> "paisSeleccionado.nombre"
 		]
 		new Label(panelDer).text = "Caracteristicas"
 		new List(panelDer) => [
-			items <=> "paisElegido.caracteristicas"
+			items <=> "paisSeleccionado.caracteristicas"
 		]
 		
 		new Label(panelDer).text = "Conexiones"
 		val paisesList = new List(panelDer)
-		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "paisElegido.conexiones")) 
+		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "paisSeleccionado.conexiones")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
 		new Label(panelDer).text = "Lugares de interes"
 		new List(panelDer) => [
-			items <=> "paisElegido.lugaresDeInteres"
+			items <=> "paisSeleccionado.lugaresDeInteres"
 		]
 	}
 	
@@ -66,8 +66,8 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 		new Label(panelIzq).text = "Paises"
 		
 		val paisesList = new List(panelIzq)
-		paisesList.bindValueToProperty("paisElegido")
-		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "mapamundi.paises")) 
+		paisesList.bindValueToProperty("paisSeleccionado")
+		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "paises")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
 		
@@ -91,7 +91,7 @@ class MapamundiWindow extends SimpleWindow<CarmenSanDiego>{
 	}
 	
 	def editarPais() {
-		new EditarPaisWindow( this ,new AppModelPais(modelObject.getPaisElegido, modelObject)).open()
+		new EditarPaisWindow( this ,new AppModelPais(modelObject.paisSeleccionado)).open()
 	}
 	
 	def nuevoPais(){

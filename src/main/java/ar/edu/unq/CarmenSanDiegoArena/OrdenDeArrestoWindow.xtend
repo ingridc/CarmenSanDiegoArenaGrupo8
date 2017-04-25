@@ -8,10 +8,12 @@ import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.Label
 import org.uqbar.arena.widgets.Button
 import appModel.AppModelVillanos
+import org.uqbar.arena.bindings.ObservableProperty
+import org.uqbar.arena.bindings.PropertyAdapter
+import tp1.Villano
 
 class OrdenDeArrestoWindow extends SimpleWindow<AppModelVillanos> {
 	
-	// CAMBIAR A APPMODELVILLANOS
 	
 	new(WindowOwner parent, AppModelVillanos model) {
 		super(parent, model)
@@ -34,10 +36,10 @@ class OrdenDeArrestoWindow extends SimpleWindow<AppModelVillanos> {
 		new Label(mainPanel) => [
 			value <=> "ordenDeArresto.villanoConOrden.nombre"
 		]
-		new Selector(mainPanel) => [
-			items <=> "villanos"
-			value <=> "villanoElegido"
-		]
+		val villanosList = new Selector(mainPanel)
+		villanosList.bindValueToProperty("villanoElegido")
+		val villanosProperty = villanosList.bindItems(new ObservableProperty(modelObject, "villanos"))
+		villanosProperty.adapter = new PropertyAdapter(typeof(Villano), "nombre")
 		
 		
 		

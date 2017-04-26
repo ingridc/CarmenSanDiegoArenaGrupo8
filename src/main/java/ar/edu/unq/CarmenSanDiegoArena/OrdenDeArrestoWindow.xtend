@@ -17,6 +17,7 @@ class OrdenDeArrestoWindow extends SimpleWindow<AppModelVillanos> {
 	
 	new(WindowOwner parent, AppModelVillanos model) {
 		super(parent, model)
+		title = "Resolviendo misterio: Robo " + modelObject.partida.casoActual.objetoRobado
 	}
 	
 	override protected addActions(Panel actionPanel) {
@@ -27,7 +28,6 @@ class OrdenDeArrestoWindow extends SimpleWindow<AppModelVillanos> {
 	}
 	
 	def nuevaOrden() {
-		
 		modelObject.nuevaOrdenDeArresto()
 	}
 	

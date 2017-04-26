@@ -46,6 +46,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 			caption = "Orden de arresto"
 			onClick[| abrirOrdenDeArresto]
 		]
+		mostrarOrden(mainPanel)
 		
 		new Button(verticalH1) => [
 			caption = "Viajar"
@@ -58,20 +59,20 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		
 		new Label(verticalH2).text = "Lugares"
 		new Button(verticalH2) => [
-			var lugar1 = modelObject.ubicacionActual.lugaresDeInteres.get(0)
-			caption = lugar1.toString()
+			bindCaptionToProperty("lugar1.nombre")
+
 			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(0))]
 		]
 		
 		new Button(verticalH2) => [
-			caption = modelObject.ubicacionActual.lugaresDeInteres.get(1).toString()
+			bindCaptionToProperty("lugar2.nombre")
 			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(1))
 			]
 		]
 		
 		new Button(verticalH2) => [
+			bindCaptionToProperty("lugar3.nombre")
 			
-			caption = modelObject.ubicacionActual.lugaresDeInteres.get(2).toString()
 			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(2))]
 		]
 		
@@ -89,6 +90,12 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		paisesPropertyX.adapter = new PropertyAdapter(typeof(Pais), "nombre") 
 		
 		
+	}
+	
+	def mostrarOrden(Panel panel) {
+		if(modelObject.ordenDeArresto != null){
+			new Label(panel).text = "Orden de arresto emitida : " + modelObject.ordenDeArresto.villanoConOrden.nombre
+		}
 	}
 	
 	def abrirLugar(Lugar lugar) {

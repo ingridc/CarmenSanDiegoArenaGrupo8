@@ -8,6 +8,7 @@ class ExpedientesRestrictedWindow extends ExpedientesWindow {
 	
 	new(WindowOwner parent, AppModelVillanos model) {
 		super(parent, model)
+		title = "Resolviendo caso: Robo " + model.partida.casoActual.objetoRobado + " - Expediente"
 	}
 	
 	override botonesDeEdicion(Panel panel){

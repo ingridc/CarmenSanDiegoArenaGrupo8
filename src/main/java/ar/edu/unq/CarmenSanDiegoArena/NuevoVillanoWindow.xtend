@@ -9,6 +9,7 @@ class NuevoVillanoWindow extends EditarVillanoWindow{
 	
 	new(WindowOwner parent, AppModelVillanos model) {
 		super(parent, new AppModelVillano(new Villano(),model))
+		title = "Expedientes-Nuevo Villano"
 	}
 	
 	override executeTask(){

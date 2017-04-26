@@ -14,6 +14,7 @@ class EditarVillanoWindow extends Dialog<AppModelVillano>{
 	
 	new(WindowOwner parent, AppModelVillano model) {
 		super(parent, model)
+		title = "Expediente - Editar Villano"
 	}
 	
 	override protected addActions(Panel actionsPanel) {

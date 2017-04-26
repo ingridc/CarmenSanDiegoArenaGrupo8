@@ -13,6 +13,7 @@ class EditarHobbiesWindow extends Dialog<AppModelVillano>{
 	
 	new(WindowOwner owner, AppModelVillano model) {
 		super(owner, model)
+		title = "Editar hobbies"
 	}
 	
 	override protected addActions(Panel actionPanel){

@@ -13,6 +13,7 @@ class EditarSenasWindow extends Dialog<AppModelVillano>{
 	
 	new(WindowOwner owner, AppModelVillano model) {
 		super(owner, model)
+		title = " Editar Señas Particulares"
 	}
 	
 	override protected addActions(Panel actionPanel){

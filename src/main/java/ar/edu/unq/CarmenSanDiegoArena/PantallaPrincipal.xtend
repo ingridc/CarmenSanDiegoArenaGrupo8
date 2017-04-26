@@ -8,6 +8,7 @@ import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Button
 import appModel.AppModelMapamundi
 import appModel.AppModelVillanos
+import appModel.AppModelPartida
 
 class PantallaPrincipal extends SimpleWindow<CarmenSanDiego> {
 	
@@ -42,8 +43,8 @@ class PantallaPrincipal extends SimpleWindow<CarmenSanDiego> {
 	}
 	
 	def inicioDeJuego() {
-		val partida = modelObject.generarPartida()
-		(new PantallaInicioJuego(this, partida)).open()
+		modelObject.generarPartida()
+		(new PantallaInicioJuego(this, new AppModelPartida(modelObject))).open()
 	}
 	
 	def iniciarMapamundi(){

@@ -17,7 +17,7 @@ class OrdenDeArrestoWindow extends SimpleWindow<AppModelVillanos> {
 	
 	new(WindowOwner parent, AppModelVillanos model) {
 		super(parent, model)
-		title = "Resolviendo misterio: Robo " + modelObject.partida.casoActual.objetoRobado
+		title = "Resolviendo misterio: Robo " + modelObject.juego.getObjetoRobado
 	}
 	
 	override protected addActions(Panel actionPanel) {
@@ -34,7 +34,7 @@ class OrdenDeArrestoWindow extends SimpleWindow<AppModelVillanos> {
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Orden de arresto emitida a:"
 		new Label(mainPanel) => [
-			value <=> "partida.ordenDeArresto.villanoConOrden.nombre"
+			value <=> "juego.ordenDeArresto.villanoConOrden.nombre"
 		]
 		val villanosList = new Selector(mainPanel)
 		villanosList.bindValueToProperty("villanoElegido")

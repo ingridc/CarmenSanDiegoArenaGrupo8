@@ -21,7 +21,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
 	new(WindowOwner parent, AppModelPartida model) {
 		super(parent, model)
-		title = "Resolviendo: Robo de " + modelObject.casoActual.objetoRobado
+		title = "Resolviendo: Robo de " + modelObject.juego.getObjetoRobado
 	}
 	
 	override protected addActions(Panel arg0) {
@@ -37,7 +37,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		
 		new Label(verticalH1).text = "Usted esta en:" 
 		new Label(verticalH1) => [
-			value <=> "ubicacionActual.nombre"
+			value <=> "juego.ubicacionActual.nombre"
 		]
 		
 
@@ -47,7 +47,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 			onClick[| abrirOrdenDeArresto]
 		]
 		new Label(verticalH1).text = "Orden de arresto emitida a : "
-		new Label(verticalH1) => [value <=> "ordenDeArresto.villanoConOrden.nombre"] 
+		new Label(verticalH1) => [value <=> "juego.ordenDeArresto.villanoConOrden.nombre"] 
 
 		
 		new Button(verticalH1) => [
@@ -61,34 +61,34 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		
 		new Label(verticalH2).text = "Lugares"
 		new Button(verticalH2) => [
-			bindCaptionToProperty("lugar1.nombre")
+			bindCaptionToProperty("juego.lugar1.nombre")
 
-			onClick[| abrirLugar( modelObject.lugar1)]
+			onClick[| abrirLugar( modelObject.juego.lugar1)]
 		]
 		
 		new Button(verticalH2) => [
-			bindCaptionToProperty("lugar2.nombre")
-			onClick[| abrirLugar( modelObject.lugar2)
+			bindCaptionToProperty("juego.lugar2.nombre")
+			onClick[| abrirLugar( modelObject.juego.lugar2)
 			]
 		]
 		
 		new Button(verticalH2) => [
-			bindCaptionToProperty("lugar3.nombre")
+			bindCaptionToProperty("juego.lugar3.nombre")
 			
-			onClick[| abrirLugar( modelObject.lugar3)]
+			onClick[| abrirLugar( modelObject.juego.lugar3)]
 		]
 		
 		new Label(mainPanel).text = "Recorrido Criminal:"
 		val listaRecorrido = new List(mainPanel)
 		listaRecorrido.height = 100
-		val paisesProperty = listaRecorrido.bindItems(new ObservableProperty(modelObject, "recorridoCorrecto")) 
+		val paisesProperty = listaRecorrido.bindItems(new ObservableProperty(modelObject, "juego.recorridoCorrecto")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre") 
 		
 		new Label(mainPanel).text = "Destinos Fallidos:"
 		
 		val listaRecorridoX = new List(mainPanel)
 		listaRecorridoX.height = 100
-		val paisesPropertyX = listaRecorridoX.bindItems(new ObservableProperty(modelObject, "recorridoIncorrecto")) 
+		val paisesPropertyX = listaRecorridoX.bindItems(new ObservableProperty(modelObject, "juego.recorridoIncorrecto")) 
 		paisesPropertyX.adapter = new PropertyAdapter(typeof(Pais), "nombre") 
 		
 		
@@ -97,27 +97,16 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
 	def abrirLugar(Lugar lugar) {
 		
-		new LugarWindow(this,new AppModelLugar(lugar, modelObject)).open()
+		new LugarWindow(this,new AppModelLugar(lugar, modelObject.juego)).open()
+		modelObject.juego.agregarRecorridoCorrectoIncorrecto(modelObject.ubicacionActual)
 		
-		//modelo puro
-		if( !( (modelObject.recorridoCorrecto.contains(modelObject.ubicacionActual) || 
-			(modelObject.recorridoIncorrecto.contains(modelObject.ubicacionActual))
-		))){
-			
-			if(modelObject.casoActual.planDeEscape.contains(modelObject.ubicacionActual)){
-				modelObject.recorridoCorrecto.add(modelObject.ubicacionActual)	
-			}
-			else{
-				modelObject.recorridoIncorrecto.add(modelObject.ubicacionActual)
-			
-			}
-		}
+
 	}
 	
 
 	
 	def abrirOrdenDeArresto() {
-		new OrdenDeArrestoWindow(this, new AppModelVillanos(modelObject)).open()
+		new OrdenDeArrestoWindow(this, new AppModelVillanos(modelObject.juego)).open()
 	}
 	
 	def abrirSeleccionDeDestino() {
@@ -125,7 +114,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	}
 	
 	def abrirExpediente() {
-		new ExpedientesRestrictedWindow(this, new AppModelVillanos(modelObject)).open()
+		new ExpedientesRestrictedWindow(this, new AppModelVillanos(modelObject.juego)).open()
 	}
 	
 }

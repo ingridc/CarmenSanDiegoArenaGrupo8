@@ -9,9 +9,9 @@ import org.uqbar.arena.widgets.Button
 
 class LugarWindow extends SimpleWindow<AppModelLugar>{
 	
-	new(WindowOwner parent, AppModelLugar model, String titulo) {
+	new(WindowOwner parent, AppModelLugar model) {
 		super(parent, model)
-		title = "Relsoviendo caso: Robo de "+ model.partida.casoActual.objetoRobado
+		title = "Relsoviendo caso: Robo de "+ model.juego.casoActual.objetoRobado
 	}
 	
 	override protected addActions(Panel actionPanel) {
@@ -25,7 +25,7 @@ class LugarWindow extends SimpleWindow<AppModelLugar>{
 	def salirOFinDelJuego() {
 		this.close
 		
-		if(modelObject.lugar.ocupante == modelObject.partida.casoActual.responsable){
+		if(modelObject.lugar.ocupante == modelObject.juego.casoActual.responsable){
 			finDelJuego()
 		}
 	
@@ -35,22 +35,22 @@ class LugarWindow extends SimpleWindow<AppModelLugar>{
 	
 	
 	def finDelJuego(){
-		if(modelObject.partida.generoOrdenDeArresto())
-			if(modelObject.partida.villanoAtrapadoCorrecto()){
-				new FinDeJuegoBuenoWindow(this, modelObject.partida).open()
+		if(modelObject.juego.generoOrdenDeArresto())
+			if(modelObject.juego.villanoAtrapadoCorrecto()){
+				new FinDeJuegoBuenoWindow(this, modelObject.juego).open()
 			}
 			else{
-				new FinDeJuegoMaloWindow(this, modelObject.partida).open()
+				new FinDeJuegoMaloWindow(this, modelObject.juego).open()
 			}
 		else{
-			new FinDeJuegoMaloWindow(this, modelObject.partida).open()
+			new FinDeJuegoMaloWindow(this, modelObject.juego).open()
 		}
 	}
 	
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Estas visitando: " + modelObject.lugar.toString
 
-		new Label(mainPanel).text = modelObject.lugar.obtenerPista(modelObject.partida.casoActual).toString()
+		new Label(mainPanel).text = modelObject.lugar.obtenerPista(modelObject.juego.casoActual).toString()
 	}
 	
 

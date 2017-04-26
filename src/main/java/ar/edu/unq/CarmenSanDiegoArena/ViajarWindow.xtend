@@ -36,7 +36,7 @@ class ViajarWindow extends Dialog<AppModelPartida>{
 	}
 	
 	def volverUnPaisAtras() {
-		modelObject.ubicacionActual = modelObject.recorrido.last()
+		modelObject.juego.volverUnPaisAtras()
 		this.close()
 	}
 	
@@ -50,11 +50,11 @@ class ViajarWindow extends Dialog<AppModelPartida>{
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Estas en:"
 		new Label(mainPanel) => [
-			value <=> "ubicacionActual.nombre"
+			value <=> "juego.ubicacionActual.nombre"
 		]
 		val paisesList = new List(mainPanel)
 		paisesList.bindValueToProperty("destinoElegido")
-		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "ubicacionActual.conexiones")) 
+		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "juego.ubicacionActual.conexiones")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 	}
 	

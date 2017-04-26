@@ -1,17 +1,17 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
 import org.uqbar.arena.windows.SimpleWindow
-import appModel.AppModelPartida
 import org.uqbar.arena.windows.WindowOwner
 import org.uqbar.arena.widgets.Panel
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.Label
+import tp1.CarmenSanDiego
 
-class FinDeJuegoBuenoWindow extends SimpleWindow<AppModelPartida>{
+class FinDeJuegoBuenoWindow extends SimpleWindow<CarmenSanDiego>{
 	
 	
 	
-	new(WindowOwner parent, AppModelPartida model) {
+	new(WindowOwner parent, CarmenSanDiego model) {
 		super(parent, model)
 		title = "Felicidades!"
 	}
@@ -39,7 +39,7 @@ class FinDeJuegoBuenoWindow extends SimpleWindow<AppModelPartida>{
 	def textoInfo() {
 		"En hora buena perro!!
 
-		 Atrapaste a "+ modelObject.casoActual.responsable.getNombre() +" y recuperaste "+modelObject.casoActual.objetoRobado+" 
+		 Atrapaste a "+ modelObject.casoActual.responsable.nombre +" y recuperaste "+modelObject.casoActual.objetoRobado+" 
 		ahora te podes ir de joda tranqui"
 	}
 	

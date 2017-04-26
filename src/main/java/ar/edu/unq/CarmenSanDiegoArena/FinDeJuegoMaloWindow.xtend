@@ -1,11 +1,11 @@
 package ar.edu.unq.CarmenSanDiegoArena
 
 import org.uqbar.arena.windows.WindowOwner
-import appModel.AppModelPartida
+import tp1.CarmenSanDiego
 
 class FinDeJuegoMaloWindow extends FinDeJuegoBuenoWindow{
 	
-	new(WindowOwner parent, AppModelPartida model) {
+	new(WindowOwner parent, CarmenSanDiego model) {
 		super(parent, model)
 		title = "WASTED"
 	}

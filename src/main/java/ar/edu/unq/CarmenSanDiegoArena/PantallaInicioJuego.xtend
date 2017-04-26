@@ -12,7 +12,7 @@ class PantallaInicioJuego extends SimpleWindow<AppModelPartida> {
 	
 	new(WindowOwner parent, AppModelPartida model) {
 		super(parent, model)
-		title = "Robo de " + modelObject.casoActual.objetoRobado
+		title = "Robo de " + model.juego.casoActual.objetoRobado
 	}
 	
 	override protected addActions(Panel actionPanel) {
@@ -24,8 +24,8 @@ class PantallaInicioJuego extends SimpleWindow<AppModelPartida> {
 	
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Detective tenemos un caso para usted!"
-		new Label(mainPanel).text = "Se ha detectado el robo de " + modelObject.casoActual.objetoRobado + "
-		en el pais de " + modelObject.casoActual.lugarDeRobo.getNombre() + " .Confiamos
+		new Label(mainPanel).text = "Se ha detectado el robo de " + modelObject.juego.getObjetoRobado + "
+		en el pais de " + modelObject.juego.getLugarDeRobo + " .Confiamos
 	 	en usted para resolver este caso y atrapar al criminal!"
 	}
 	

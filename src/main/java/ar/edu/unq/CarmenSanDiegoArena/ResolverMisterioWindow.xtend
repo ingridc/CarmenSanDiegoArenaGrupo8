@@ -46,7 +46,9 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 			caption = "Orden de arresto"
 			onClick[| abrirOrdenDeArresto]
 		]
-		mostrarOrden(mainPanel)
+		new Label(verticalH1).text = "Orden de arresto emitida a : "
+		new Label(verticalH1) => [value <=> "ordenDeArresto.villanoConOrden.nombre"] 
+
 		
 		new Button(verticalH1) => [
 			caption = "Viajar"
@@ -92,11 +94,6 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		
 	}
 	
-	def mostrarOrden(Panel panel) {
-		if(modelObject.ordenDeArresto != null){
-			new Label(panel).text = "Orden de arresto emitida : " + modelObject.ordenDeArresto.villanoConOrden.nombre
-		}
-	}
 	
 	def abrirLugar(Lugar lugar) {
 		

@@ -36,8 +36,8 @@ class LugarWindow extends SimpleWindow<AppModelLugar>{
 	
 	
 	def finDelJuego(){
-		if(modelObject.partida.ordenDeArresto != null)
-			if(modelObject.partida.ordenDeArresto.villanoConOrden == modelObject.partida.casoActual.responsable){
+		if(modelObject.partida.generoOrdenDeArresto())
+			if(modelObject.partida.villanoAtrapadoCorrecto()){
 				new FinDeJuegoBuenoWindow(this, modelObject.partida).open()
 			}
 			else{

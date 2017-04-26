@@ -28,12 +28,14 @@ class ExpedientesWindow extends SimpleWindow<AppModelVillanos>{
 	override protected createFormPanel(Panel mainPanel) {
 		mainPanel => [
 			layout = new HorizontalLayout
+			
 		]
 		
 		val listaVillanos = new Panel(mainPanel)
 		new Label(listaVillanos).text = "Villano"
 		
 		val villanosList = new List(listaVillanos)
+		villanosList.height = 100
 		villanosList.bindValueToProperty("villanoElegido")
 		val villanosProperty = villanosList.bindItems(new ObservableProperty(modelObject, "villanos"))
 		villanosProperty.adapter = new PropertyAdapter(typeof(Villano), "nombre")
@@ -51,12 +53,15 @@ class ExpedientesWindow extends SimpleWindow<AppModelVillanos>{
 		]
 		new Label(atributosVillano).text = "Señas particulares:"
 		new List(atributosVillano) => [
+			height = 50
+			width = 80
 			items <=> "villanoElegido.senas_particulares"
 		]
 		new Label(atributosVillano).text = "Hobbies:"
 		new List(atributosVillano) => [
 			items <=> "villanoElegido.hobbies"
-			width = 250
+			height = 50
+			width = 80
 		]
 	}
 	

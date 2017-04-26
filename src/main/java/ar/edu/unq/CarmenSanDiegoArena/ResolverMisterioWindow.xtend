@@ -77,11 +77,14 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		
 		new Label(mainPanel).text = "Recorrido Criminal:"
 		val listaRecorrido = new List(mainPanel)
+		listaRecorrido.height = 100
 		val paisesProperty = listaRecorrido.bindItems(new ObservableProperty(modelObject, "recorridoCorrecto")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre") 
+		
 		new Label(mainPanel).text = "Destinos Fallidos:"
 		
 		val listaRecorridoX = new List(mainPanel)
+		listaRecorridoX.height = 100
 		val paisesPropertyX = listaRecorridoX.bindItems(new ObservableProperty(modelObject, "recorridoIncorrecto")) 
 		paisesPropertyX.adapter = new PropertyAdapter(typeof(Pais), "nombre") 
 		

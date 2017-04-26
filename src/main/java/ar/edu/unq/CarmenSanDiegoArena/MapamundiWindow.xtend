@@ -43,20 +43,27 @@ class MapamundiWindow extends SimpleWindow<AppModelMapamundi>{
 	def crearAtributos(Panel panelDer){
 		new Label(panelDer).text = "Nombre:"
 		new Label(panelDer) => [
+			width = 60
 			value <=> "paisSeleccionado.nombre"
 		]
 		new Label(panelDer).text = "Caracteristicas"
 		new List(panelDer) => [
+			width = 60
+			height=35
 			items <=> "paisSeleccionado.caracteristicas"
 		]
 		
 		new Label(panelDer).text = "Conexiones"
 		val paisesList = new List(panelDer)
+		paisesList.width = 60
+		paisesList.height = 35
 		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "paisSeleccionado.conexiones")) 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
 		new Label(panelDer).text = "Lugares de interes"
 		new List(panelDer) => [
+			width = 60
+			height=35
 			items <=> "paisSeleccionado.lugaresDeInteres"
 		]
 	}

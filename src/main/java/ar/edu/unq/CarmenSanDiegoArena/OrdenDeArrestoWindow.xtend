@@ -34,7 +34,7 @@ class OrdenDeArrestoWindow extends SimpleWindow<AppModelVillanos> {
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Orden de arresto emitida a:"
 		new Label(mainPanel) => [
-			value <=> "ordenDeArresto.villanoConOrden.nombre"
+			value <=> "partida.ordenDeArresto.villanoConOrden.nombre"
 		]
 		val villanosList = new Selector(mainPanel)
 		villanosList.bindValueToProperty("villanoElegido")

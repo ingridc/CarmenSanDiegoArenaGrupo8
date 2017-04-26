@@ -87,14 +87,48 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	}
 	
 	def abrirLugar(Lugar lugar) {
-		new LugarWindow(this,new AppModelLugar(lugar, modelObject)).open()
-		//if(modelObject.casoActual.planDeEscape.contains(modelObject.ubicacionActual)){
+		
+		levantaVentanaLugar(lugar)
+		
+		
+		if( !( (modelObject.recorridoCorrecto.contains(modelObject.ubicacionActual) || 
+			(modelObject.recorridoIncorrecto.contains(modelObject.ubicacionActual))
+		))){
 			
-		//}
+			if(modelObject.casoActual.planDeEscape.contains(modelObject.ubicacionActual)){
+				modelObject.recorridoCorrecto.add(modelObject.ubicacionActual)	
+			}
+			else{
+				modelObject.recorridoIncorrecto.add(modelObject.ubicacionActual)
+			
+			}
+		}
+	}
+	
+	def levantaVentanaLugar(Lugar lugar){
+		
+		if(modelObject.ubicacionActual == modelObject.casoActual.planDeEscape.last()){
+			
+			levantarVentanaFinJuego()
+		}
+		else{
+			new LugarWindow(this,new AppModelLugar(lugar, modelObject)).open()	
+		}
+		
+	}
+	
+	def levantarVentanaFinJuego() {
+		
+		if(modelObject.ordenDeArresto.villanoConOrden == modelObject.casoActual.responsable){
+			new FinDeJuegoBuenoWindow(this, modelObject).open()
+		}
+		else{
+			new FinDeJuegoMaloWindow(this, modelObject).open()
+		}
 	}
 	
 	def abrirOrdenDeArresto() {
-		new OrdenDeArrestoWindow(this, new AppModelVillanos()).open()
+		new OrdenDeArrestoWindow(this, new AppModelVillanos(modelObject)).open()
 	}
 	
 	def abrirSeleccionDeDestino() {

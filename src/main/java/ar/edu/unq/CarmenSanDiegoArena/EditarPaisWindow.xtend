@@ -28,7 +28,9 @@ class EditarPaisWindow extends Dialog<AppModelPais>{
 	override protected addActions(Panel actionPanel) {
 		new Button(actionPanel) => [
 			caption = "Aceptar"
-			onClick[ | this.accept()]
+			onClick[ | this.modelObject.nuevoPais //tiene que agregar utilizando el método del modelo
+						close
+			]
 		]
 
 	}

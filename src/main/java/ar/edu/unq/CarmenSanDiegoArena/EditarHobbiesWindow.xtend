@@ -25,6 +25,7 @@ class EditarHobbiesWindow extends Dialog<AppModelVillano>{
 	override protected createFormPanel(Panel mainPanel) {
 		new List(mainPanel) => [
 			items <=> "villano.hobbies"
+			width = 240
 		]
 		
 		new TextBox(mainPanel) => [

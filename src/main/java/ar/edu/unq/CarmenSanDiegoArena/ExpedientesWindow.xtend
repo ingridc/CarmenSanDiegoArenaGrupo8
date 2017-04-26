@@ -56,6 +56,7 @@ class ExpedientesWindow extends SimpleWindow<AppModelVillanos>{
 		new Label(atributosVillano).text = "Hobbies:"
 		new List(atributosVillano) => [
 			items <=> "villanoElegido.hobbies"
+			width = 250
 		]
 	}
 	

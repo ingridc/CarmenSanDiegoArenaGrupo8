@@ -26,6 +26,7 @@ class EditarSenasWindow extends Dialog<AppModelVillano>{
 		
 		new List(mainPanel) => [
 			items <=> "villano.senas_particulares"
+			width = 240
 		]
 		
 		new TextBox(mainPanel) => [
@@ -39,7 +40,6 @@ class EditarSenasWindow extends Dialog<AppModelVillano>{
 	}
 	
 	def agregarSena() {
-	
 		modelObject.agregarSenaActual()
 	}
 }

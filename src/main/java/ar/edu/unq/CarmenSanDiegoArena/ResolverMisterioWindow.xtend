@@ -63,19 +63,19 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		new Button(verticalH2) => [
 			bindCaptionToProperty("lugar1.nombre")
 
-			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(0))]
+			onClick[| abrirLugar( modelObject.lugar1)]
 		]
 		
 		new Button(verticalH2) => [
 			bindCaptionToProperty("lugar2.nombre")
-			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(1))
+			onClick[| abrirLugar( modelObject.lugar2)
 			]
 		]
 		
 		new Button(verticalH2) => [
 			bindCaptionToProperty("lugar3.nombre")
 			
-			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(2))]
+			onClick[| abrirLugar( modelObject.lugar3)]
 		]
 		
 		new Label(mainPanel).text = "Recorrido Criminal:"
@@ -99,7 +99,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		
 		new LugarWindow(this,new AppModelLugar(lugar, modelObject)).open()
 		
-		
+		//modelo puro
 		if( !( (modelObject.recorridoCorrecto.contains(modelObject.ubicacionActual) || 
 			(modelObject.recorridoIncorrecto.contains(modelObject.ubicacionActual))
 		))){
@@ -125,7 +125,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	}
 	
 	def abrirExpediente() {
-		new ExpedientesRestrictedWindow(this, new AppModelVillanos).open()
+		new ExpedientesRestrictedWindow(this, new AppModelVillanos(modelObject)).open()
 	}
 	
 }

@@ -9,7 +9,7 @@ import org.uqbar.arena.widgets.Button
 
 class LugarWindow extends SimpleWindow<AppModelLugar>{
 	
-	new(WindowOwner parent, AppModelLugar model) {
+	new(WindowOwner parent, AppModelLugar model, String titulo) {
 		super(parent, model)
 		title = "Relsoviendo caso: Robo de "+ model.partida.casoActual.objetoRobado
 	}
@@ -31,7 +31,6 @@ class LugarWindow extends SimpleWindow<AppModelLugar>{
 	
 		
 	}
-	
 
 	
 	

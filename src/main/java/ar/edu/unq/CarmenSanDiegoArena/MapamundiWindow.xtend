@@ -57,7 +57,7 @@ class MapamundiWindow extends SimpleWindow<AppModelMapamundi>{
 		val paisesList = new List(panelDer)
 		paisesList.width = 60
 		paisesList.height = 35
-		val paisesProperty = paisesList.bindItems(new ObservableProperty(modelObject, "paisSeleccionado.conexiones")) 
+		val paisesProperty = paisesList.bindItemsToProperty("paisSeleccionado.conexiones") 
 		paisesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
 		new Label(panelDer).text = "Lugares de interes"
@@ -98,11 +98,11 @@ class MapamundiWindow extends SimpleWindow<AppModelMapamundi>{
 	}
 	
 	def editarPais() {
-		new EditarPaisWindow( this ,new AppModelPais(modelObject.paisSeleccionado,modelObject)).open()
+		new EditarPaisWindow( this ,new AppModelPais(modelObject.paisSeleccionado)).open()
 	}
 	
 	def nuevoPais(){
-		new NuevoPaisWindow(this,modelObject).open()
+		new NuevoPaisWindow(this).open()
 	}
 	
 	

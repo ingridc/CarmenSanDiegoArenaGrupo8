@@ -7,8 +7,8 @@ import appModel.AppModelMapamundi
 
 class NuevoPaisWindow extends EditarPaisWindow{
 	
-	new(WindowOwner owner,AppModelMapamundi mainModel) {
-		super(owner, new AppModelPais(new Pais, mainModel))
+	new(WindowOwner owner) {
+		super(owner, new AppModelPais(new Pais))
 	}
 	
 	override defaultTitle(){

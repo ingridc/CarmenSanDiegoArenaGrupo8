@@ -7,8 +7,8 @@ import appModel.AppModelVillanos
 
 class NuevoVillanoWindow extends EditarVillanoWindow{
 	
-	new(WindowOwner parent, AppModelVillanos model) {
-		super(parent, new AppModelVillano(new Villano(),model))
+	new(WindowOwner parent) {
+		super(parent, new AppModelVillano(new Villano()))
 		title = "Expedientes-Nuevo Villano"
 	}
 	

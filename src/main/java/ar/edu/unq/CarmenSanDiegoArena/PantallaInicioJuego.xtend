@@ -25,12 +25,9 @@ class PantallaInicioJuego extends SimpleWindow<AppModelPartida> {
 	
 	override protected createFormPanel(Panel mainPanel) {
 		new Label(mainPanel).text = "Detective tenemos un caso para usted! Ocurrio en:"
-		new Label(mainPanel) => [
-    	background = Color.YELLOW
-    	value <=> "casoActual.lugarDeRobo.nombre"
-    	height = 200
-    	width = 350
-		]
+		new Label(mainPanel).text = "Se ha detectado el robo de " + modelObject.casoActual.objetoRobado + "
+		en el pais de " + modelObject.casoActual.lugarDeRobo.getNombre() + " .Confiamos
+	 	en usted para resolver este caso y atrapar al criminal!"
 	}
 	
 	def resolverMisterio(){

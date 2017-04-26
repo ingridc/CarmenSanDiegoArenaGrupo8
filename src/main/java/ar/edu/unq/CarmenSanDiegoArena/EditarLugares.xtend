@@ -32,7 +32,7 @@ class EditarLugares extends Dialog<AppModelPais>{
 		new Label(mainPanel).text = "Lugares de interes"
 		new List(mainPanel) => [
 			items <=> "pais.lugaresDeInteres"
-			value <=> "lugarSeleccionado"
+			value <=> "lugarAEliminar"
 		]
 		
 		new Button(mainPanel) => [
@@ -46,7 +46,7 @@ class EditarLugares extends Dialog<AppModelPais>{
 		new Selector<Pais>(panelAgregar) => [
 			allowNull(false)
 			value <=> "lugarSeleccionado" 
-			items <=> "model.lugares"
+			items <=> "lugaresDisponibles"
 		]
 		
 		new Button(panelAgregar) => [

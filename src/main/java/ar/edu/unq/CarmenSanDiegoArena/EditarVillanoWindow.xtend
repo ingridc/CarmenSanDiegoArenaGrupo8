@@ -38,10 +38,12 @@ class EditarVillanoWindow extends Dialog<AppModelVillano>{
 		
 		new Label(mainPanel).text = "Señas Particulares"
 		new Button(mainPanel) => [
+			
 			caption = "Editar Señas Particulares"
 			onClick [| abrirEditarSenas]
 		]
 		new List(mainPanel) => [
+			height=200
 			items <=> "villano.senas_particulares"
 		]
 			
@@ -51,6 +53,7 @@ class EditarVillanoWindow extends Dialog<AppModelVillano>{
 			onClick [| abrirEditarHobbies]
 		]
 		new List(mainPanel) => [
+			height = 200
 			items <=> "villano.hobbies"
 		]
 	}

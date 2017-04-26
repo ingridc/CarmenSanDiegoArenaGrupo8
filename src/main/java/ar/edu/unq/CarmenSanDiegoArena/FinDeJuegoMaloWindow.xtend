@@ -7,6 +7,7 @@ class FinDeJuegoMaloWindow extends FinDeJuegoBuenoWindow{
 	
 	new(WindowOwner parent, AppModelPartida model) {
 		super(parent, model)
+		title = "WASTED"
 	}
 	
 	override textoBoton(){
@@ -16,7 +17,7 @@ class FinDeJuegoMaloWindow extends FinDeJuegoBuenoWindow{
 	override textoInfo(){
 		"Reporta2 perro
 
-		 Atrapaste a"+modelObject.ordenDeArresto.villanoConOrden+"y recuperaste"+modelObject.casoActual.objetoRobado+"ahora te podes ir de joda tranqui"
+		 Atrapaste a "+ modelObject.casoActual.responsable.getNombre + " pero tenias una orden contra "+modelObject.ordenDeArresto.villanoConOrden.getNombre 
 	}
 	
 }

@@ -49,7 +49,7 @@ class EditarConexiones extends Dialog<AppModelPais>{
 		
 		val conexionesList = new Selector(panelAgregar)
 		conexionesList.bindValueToProperty("conexionSeleccionada")
-		val conexionesProperty = conexionesList.bindItems(new ObservableProperty(modelObject, "model.mapamundi")) 
+		val conexionesProperty = conexionesList.bindItems(new ObservableProperty(modelObject, "mapamundi.paises")) 
 		conexionesProperty.adapter = new PropertyAdapter(typeof(Pais), "nombre")
 		
 		new Button(panelAgregar) => [

@@ -107,7 +107,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
 	def levantaVentanaLugar(Lugar lugar){
 		
-		if(modelObject.ubicacionActual == modelObject.casoActual.planDeEscape.last()){
+		if(lugar.ocupante == modelObject.casoActual.responsable){
 			
 			levantarVentanaFinJuego()
 		}

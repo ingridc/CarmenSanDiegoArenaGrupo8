@@ -13,6 +13,7 @@ class FinDeJuegoBuenoWindow extends SimpleWindow<AppModelPartida>{
 	
 	new(WindowOwner parent, AppModelPartida model) {
 		super(parent, model)
+		title = "Felicidades!"
 	}
 	
 	override protected addActions(Panel actionsPanel) {
@@ -38,7 +39,8 @@ class FinDeJuegoBuenoWindow extends SimpleWindow<AppModelPartida>{
 	def textoInfo() {
 		"En hora buena perro!!
 
-		 Atrapaste a "+modelObject.casoActual.responsable+" y recuperaste "+modelObject.casoActual.objetoRobado+" ahora te podes ir de joda tranqui"
+		 Atrapaste a "+ modelObject.casoActual.responsable.getNombre() +" y recuperaste "+modelObject.casoActual.objetoRobado+" 
+		ahora te podes ir de joda tranqui"
 	}
 	
 }

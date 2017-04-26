@@ -41,7 +41,7 @@ class EditarCaracteristicas extends Dialog<AppModelPais>{
 		panelAgregar.layout = new HorizontalLayout
 		
 		new TextBox(panelAgregar) => [
-			value <=> "caracteristicaSeleccionada" 
+			value <=> "caracteristicaNueva" 
 		]
 		
 		new Button(panelAgregar) => [

@@ -15,9 +15,14 @@ class FinDeJuegoMaloWindow extends FinDeJuegoBuenoWindow{
 	}
 	
 	override textoInfo(){
+		if(modelObject.ordenDeArresto!= null){
 		"Reporta2 perro
 
 		 Atrapaste a "+ modelObject.casoActual.responsable.getNombre + " pero tenias una orden contra "+modelObject.ordenDeArresto.villanoConOrden.getNombre 
+		}
+		else{
+		"Te encontraste con " + modelObject.casoActual.responsable.getNombre + " pero al no tener orden de arresto escapó :'v"
+		}
 	}
 	
 }

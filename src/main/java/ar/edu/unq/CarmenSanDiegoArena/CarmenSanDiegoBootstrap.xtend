@@ -74,15 +74,19 @@ class CarmenSanDiegoBootstrap extends CollectionBasedBootstrap{
 		lugares1.add(new Club)
 		lugares1.add(new Embajada)
 		lugares1.add(new Banco)
+		
 		lugares2.add(new Embajada)
 		lugares2.add(new Banco)
 		lugares2.add(new Biblioteca)
+		
 		lugares3.add(new Club)
 		lugares3.add(new Banco)
-		lugares3.add(new Banco)
+		lugares3.add(new Biblioteca)
+		
 		lugares4.add(new Club)
 		lugares4.add(new Embajada)
 		lugares4.add(new Biblioteca)
+		
 		lugares5.add(new Club)
 		lugares5.add(new Banco)
 		lugares5.add(new Embajada)

@@ -21,6 +21,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
 	new(WindowOwner parent, AppModelPartida model) {
 		super(parent, model)
+		title = "Resolviendo: Robo de " + modelObject.casoActual.objetoRobado
 	}
 	
 	override protected addActions(Panel arg0) {
@@ -57,7 +58,8 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		
 		new Label(verticalH2).text = "Lugares"
 		new Button(verticalH2) => [
-			caption = modelObject.ubicacionActual.lugaresDeInteres.get(0).toString()
+			var lugar1 = modelObject.ubicacionActual.lugaresDeInteres.get(0)
+			caption = lugar1.toString()
 			onClick[| abrirLugar( modelObject.ubicacionActual.lugaresDeInteres.get(0))]
 		]
 		
@@ -88,7 +90,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 	
 	def abrirLugar(Lugar lugar) {
 		
-		levantaVentanaLugar(lugar)
+		new LugarWindow(this,new AppModelLugar(lugar, modelObject)).open()
 		
 		
 		if( !( (modelObject.recorridoCorrecto.contains(modelObject.ubicacionActual) || 
@@ -105,27 +107,7 @@ class ResolverMisterioWindow extends SimpleWindow<AppModelPartida> {
 		}
 	}
 	
-	def levantaVentanaLugar(Lugar lugar){
-		
-		if(lugar.ocupante == modelObject.casoActual.responsable){
-			
-			levantarVentanaFinJuego()
-		}
-		else{
-			new LugarWindow(this,new AppModelLugar(lugar, modelObject)).open()	
-		}
-		
-	}
-	
-	def levantarVentanaFinJuego() {
-		
-		if(modelObject.ordenDeArresto.villanoConOrden == modelObject.casoActual.responsable){
-			new FinDeJuegoBuenoWindow(this, modelObject).open()
-		}
-		else{
-			new FinDeJuegoMaloWindow(this, modelObject).open()
-		}
-	}
+
 	
 	def abrirOrdenDeArresto() {
 		new OrdenDeArrestoWindow(this, new AppModelVillanos(modelObject)).open()

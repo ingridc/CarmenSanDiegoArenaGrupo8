@@ -17,6 +17,7 @@ class ViajarWindow extends Dialog<AppModelPartida>{
 	
 	new(WindowOwner parent, AppModelPartida model) {
 		super(parent, model)
+		title = "Viajar"
 	}
 	
 	override protected addActions(Panel actionPanel) {

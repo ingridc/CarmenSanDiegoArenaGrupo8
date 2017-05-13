@@ -9,6 +9,8 @@ import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.widgets.List
 import org.uqbar.arena.windows.Dialog
 import appModel.AppModelVillano
+import appModel.AppModelEditarSeniasVillano
+import appModel.AppModelEditarHobbiesVillano
 
 class EditarVillanoWindow extends Dialog<AppModelVillano>{
 	
@@ -60,11 +62,11 @@ class EditarVillanoWindow extends Dialog<AppModelVillano>{
 	}
 	
 	def abrirEditarHobbies() {
-		new EditarHobbiesWindow(this, modelObject).open()
+		new EditarHobbiesWindow(this, new AppModelEditarHobbiesVillano).open()
 	}
 	
 	def abrirEditarSenas() {
-		new EditarSenasWindow(this, modelObject).open()
+		new EditarSenasWindow(this, new AppModelEditarSeniasVillano).open()
 	}
 	
 	override executeTask(){

@@ -7,11 +7,11 @@ import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.List
 import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.windows.Dialog
-import appModel.AppModelVillano
+import appModel.AppModelEditarHobbiesVillano
 
-class EditarHobbiesWindow extends Dialog<AppModelVillano>{
+class EditarHobbiesWindow extends Dialog<AppModelEditarHobbiesVillano>{
 	
-	new(WindowOwner owner, AppModelVillano model) {
+	new(WindowOwner owner, AppModelEditarHobbiesVillano model) {
 		super(owner, model)
 		title = "Editar hobbies"
 	}

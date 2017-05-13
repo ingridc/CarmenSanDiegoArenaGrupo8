@@ -3,7 +3,7 @@ package ar.edu.unq.CarmenSanDiegoArena
 import org.uqbar.arena.windows.WindowOwner
 import tp1.Villano
 import appModel.AppModelVillano
-import appModel.AppModelVillanos
+import ar.edu.unq.CarmenSanDiegoArena.EditarVillanoWindow
 
 class NuevoVillanoWindow extends EditarVillanoWindow{
 	

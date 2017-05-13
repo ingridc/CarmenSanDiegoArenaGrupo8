@@ -14,6 +14,7 @@ import org.uqbar.arena.bindings.ObservableProperty
 import appModel.AppModelVillano
 import appModel.AppModelVillanos
 
+
 class ExpedientesWindow extends SimpleWindow<AppModelVillanos>{
 	
 	new(WindowOwner parent, AppModelVillanos model) {

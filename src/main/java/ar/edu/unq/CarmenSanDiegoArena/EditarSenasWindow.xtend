@@ -7,11 +7,11 @@ import static extension org.uqbar.arena.xtend.ArenaXtendExtensions.*
 import org.uqbar.arena.widgets.TextBox
 import org.uqbar.arena.widgets.Button
 import org.uqbar.arena.windows.Dialog
-import appModel.AppModelVillano
+import appModel.AppModelEditarSeniasVillano
 
-class EditarSenasWindow extends Dialog<AppModelVillano>{
+class EditarSenasWindow extends Dialog<AppModelEditarSeniasVillano>{
 	
-	new(WindowOwner owner, AppModelVillano model) {
+	new(WindowOwner owner, AppModelEditarSeniasVillano model) {
 		super(owner, model)
 		title = " Editar Señas Particulares"
 	}
